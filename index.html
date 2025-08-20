@@ -4,25 +4,184 @@
     <meta charset="UTF-8">
     <title>Guida Rapida - Basi di Inglese</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.4; margin: 20px; }
-        h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
-        h2 { color: #34495e; margin-top: 25px; }
-        h3 { color: #2c3e50; margin-top: 20px; }
-        table { border-collapse: collapse; width: 100%; margin: 10px 0; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f2f2f2; font-weight: bold; }
-        .highlight { background-color: #e8f4fd; }
-        .usage { font-style: italic; color: #666; }
-        .examples { color: #27ae60; font-weight: bold; }
-        .section { margin-bottom: 30px; }
-        .emoji { font-size: 1.2em; }
-        .tip-box { background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 5px; margin: 15px 0; }
+        body { 
+            font-family: 'Verdana', 'Tahoma', 'Century Gothic', 'Trebuchet MS', Arial, sans-serif; 
+            font-size: 16px;
+            line-height: 1.6; 
+            letter-spacing: 0.5px;
+            margin: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        h1 { 
+            color: #fff;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 2.2em;
+            margin: -30px -30px 30px -30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        
+        h2 { 
+            color: #2d3436;
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            padding: 18px;
+            border-radius: 12px;
+            margin: 25px 0 15px 0;
+            font-size: 1.4em;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            letter-spacing: 0.8px;
+            font-weight: bold;
+        }
+        
+        h3 { 
+            color: #2d3436;
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin: 20px 0 10px 0;
+            display: inline-block;
+            min-width: 200px;
+            letter-spacing: 0.5px;
+            font-weight: bold;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            margin: 15px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        th, td { 
+            border: none;
+            padding: 15px 18px; 
+            text-align: left; 
+            font-size: 15px;
+            letter-spacing: 0.3px;
+        }
+        
+        th { 
+            background: linear-gradient(45deg, #2d3436, #636e72);
+            color: white;
+            font-weight: bold; 
+            font-size: 16px;
+            letter-spacing: 0.8px;
+        }
+        
+        tr:nth-child(even) { background-color: #f8f9fa; }
+        tr:nth-child(odd) { background-color: #fff; }
+        tr:hover { background-color: #e3f2fd; }
+        
+        .highlight { 
+            background: linear-gradient(45deg, #ffeaa7, #fab1a0) !important;
+            font-weight: bold;
+        }
+        
+        .usage { 
+            font-style: italic; 
+            color: #6c5ce7;
+            background: #e8f4f8;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 5px 0;
+            border-left: 4px solid #6c5ce7;
+        }
+        
+        .examples { 
+            color: #00b894;
+            font-weight: bold;
+            background: #e8f8f5;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 5px 0;
+            border-left: 4px solid #00b894;
+        }
+        
+        .section { 
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .emoji { font-size: 1.5em; }
+        
+        ul {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #ff7675;
+        }
+        
+        li {
+            margin: 8px 0;
+            padding: 5px 0;
+        }
+        
+        strong {
+            color: #2d3436;
+            background: #ffeaa7;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .irregular-verbs {
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            color: #2d3436;
+            font-weight: bold;
+        }
+        
+        .grammar-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .fun-fact {
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+            border: 3px dashed #e17055;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            text-align: center;
+            font-weight: bold;
+            color: #2d3436;
+        }
     </style>
 </head>
 <body>
+<div class="container">
 
 <h1>📘 GUIDA RAPIDA - BASI DI INGLESE</h1>
-<p><strong>Primo Anno Superiori - Schema di Riferimento</strong></p>
+<p style="text-align: center; font-size: 1.2em; color: #6c5ce7; font-weight: bold;">Primo Anno Superiori - Schema di Riferimento</p>
 
 <div class="section">
 <h2>🕒 TEMPI VERBALI PRINCIPALI</h2>
@@ -105,9 +264,11 @@
 <p class="usage"><strong>🔹 Uso:</strong> azioni passate finite</p>
 <p class="examples"><strong>🔹 Espressioni:</strong> yesterday, last week, ago, in 2020</p>
 
-<p><strong>🔸 Verbi irregolari comuni:</strong><br>
+<div class="irregular-verbs">
+🔸 <strong>Verbi irregolari comuni:</strong><br>
 go → <strong>went</strong> | come → <strong>came</strong> | see → <strong>saw</strong> | have → <strong>had</strong><br>
-get → <strong>got</strong> | make → <strong>made</strong> | take → <strong>took</strong> | do → <strong>did</strong></p>
+get → <strong>got</strong> | make → <strong>made</strong> | take → <strong>took</strong> | do → <strong>did</strong>
+</div>
 
 <h3>PRESENT PERFECT</h3>
 <table>
@@ -186,19 +347,21 @@ get → <strong>got</strong> | make → <strong>made</strong> | take → <strong
 </table>
 
 <h3>Plurali Irregolari</h3>
-<p><strong>man → men</strong> | <strong>woman → women</strong> | <strong>child → children</strong><br>
-<strong>person → people</strong> | <strong>foot → feet</strong> | <strong>tooth → teeth</strong><br>
-<strong>mouse → mice</strong> | <strong>sheep → sheep</strong> | <strong>fish → fish</strong></p>
+<div class="fun-fact">
+🦆 <strong>man → men</strong> | <strong>woman → women</strong> | <strong>child → children</strong><br>
+👥 <strong>person → people</strong> | <strong>foot → feet</strong> | <strong>tooth → teeth</strong><br>
+🐭 <strong>mouse → mice</strong> | <strong>sheep → sheep</strong> | <strong>fish → fish</strong>
+</div>
 </div>
 
 <div class="section">
 <h2>🔤 ARTICOLI, PRONOMI, AGGETTIVI</h2>
 
-<h3>Articoli</h3>
-<ul>
-    <li><strong>A/AN:</strong> a book, an apple (singolare, indeterminativo)</li>
-    <li><strong>THE:</strong> the book (determinativo)</li>
-</ul>
+<h3>📰 Articoli</h3>
+<div class="grammar-box">
+🅰️ <strong>A/AN:</strong> a book, an apple (singolare, indeterminativo)<br>
+🎯 <strong>THE:</strong> the book (determinativo)
+</div>
 
 <h3>Pronomi Personali e Possessivi</h3>
 <table>
@@ -307,81 +470,82 @@ get → <strong>got</strong> | make → <strong>made</strong> | take → <strong
 <div class="section">
 <h2>🔢 SOME/ANY/MUCH/MANY</h2>
 
-<h3>SOME vs ANY</h3>
-<ul>
-    <li><strong>SOME:</strong> frasi affermative → I have some friends</li>
-    <li><strong>ANY:</strong> frasi negative e interrogative → I don't have any money / Do you have any sisters?</li>
-</ul>
+<h3>✅ SOME vs ANY</h3>
+<div class="grammar-box">
+➕ <strong>SOME:</strong> frasi affermative → I have some friends<br>
+➖❓ <strong>ANY:</strong> frasi negative e interrogative → I don't have any money / Do you have any sisters?
+</div>
 
-<h3>MUCH vs MANY</h3>
-<ul>
-    <li><strong>MUCH:</strong> sostantivi non numerabili → How much time?</li>
-    <li><strong>MANY:</strong> sostantivi numerabili → How many students?</li>
-</ul>
+<h3>🔢 MUCH vs MANY</h3>
+<div class="grammar-box">
+💧 <strong>MUCH:</strong> sostantivi non numerabili → How much time?<br>
+📚 <strong>MANY:</strong> sostantivi numerabili → How many students?
+</div>
 </div>
 
 <div class="section">
 <h2>⚖️ COMPARATIVI</h2>
 
-<h3>Aggettivi Corti (+er/est)</h3>
-<p>tall → tall<strong>er</strong> → the tall<strong>est</strong><br>
-big → bigg<strong>er</strong> → the bigg<strong>est</strong><br>
-happy → happi<strong>er</strong> → the happi<strong>est</strong></p>
+<h3>📏 Aggettivi Corti (+er/est)</h3>
+<div class="fun-fact">
+📐 tall → tall<strong>er</strong> → the tall<strong>est</strong><br>
+📦 big → bigg<strong>er</strong> → the bigg<strong>est</strong><br>
+😊 happy → happi<strong>er</strong> → the happi<strong>est</strong>
+</div>
 
-<h3>Aggettivi Lunghi (more/most)</h3>
-<p>beautiful → <strong>more</strong> beautiful → <strong>the most</strong> beautiful<br>
-expensive → <strong>more</strong> expensive → <strong>the most</strong> expensive</p>
+<h3>📝 Aggettivi Lunghi (more/most)</h3>
+<div class="fun-fact">
+🌸 beautiful → <strong>more</strong> beautiful → <strong>the most</strong> beautiful<br>
+💰 expensive → <strong>more</strong> expensive → <strong>the most</strong> expensive
+</div>
 
-<h3>Irregolari</h3>
-<p>good → <strong>better</strong> → <strong>the best</strong><br>
-bad → <strong>worse</strong> → <strong>the worst</strong></p>
+<h3>🎭 Irregolari</h3>
+<div class="irregular-verbs">
+👍 good → <strong>better</strong> → <strong>the best</strong><br>
+👎 bad → <strong>worse</strong> → <strong>the worst</strong>
+</div>
 </div>
 
 <div class="section">
 <h2>📍 PREPOSIZIONI PRINCIPALI</h2>
 
-<h3>Tempo</h3>
-<ul>
-    <li><strong>IN:</strong> in the morning, in January, in 2023</li>
-    <li><strong>ON:</strong> on Monday, on 5th May</li>
-    <li><strong>AT:</strong> at 3 o'clock, at night, at the weekend</li>
-</ul>
+<h3>⏰ Tempo</h3>
+<div class="grammar-box">
+🌅 <strong>IN:</strong> in the morning, in January, in 2023<br>
+📅 <strong>ON:</strong> on Monday, on 5th May<br>
+🕐 <strong>AT:</strong> at 3 o'clock, at night, at the weekend
+</div>
 
-<h3>Luogo</h3>
-<ul>
-    <li><strong>IN:</strong> in the room, in London</li>
-    <li><strong>ON:</strong> on the table, on the bus</li>
-    <li><strong>AT:</strong> at home, at school, at the station</li>
-</ul>
+<h3>🗺️ Luogo</h3>
+<div class="grammar-box">
+🏠 <strong>IN:</strong> in the room, in London<br>
+📋 <strong>ON:</strong> on the table, on the bus<br>
+📍 <strong>AT:</strong> at home, at school, at the station
+</div>
 </div>
 
 <div class="section">
 <h2>💬 FUNZIONI COMUNICATIVE ESSENZIALI</h2>
 
-<h3>Presentarsi</h3>
-<ul>
-    <li>Hello, I'm... / My name is...</li>
-    <li>Nice to meet you</li>
-    <li>How are you? → Fine, thanks</li>
-</ul>
+<h3>👋 Presentarsi</h3>
+<div class="grammar-box">
+Hello, I'm... / My name is... | Nice to meet you | How are you? → Fine, thanks
+</div>
 
-<h3>Chiedere Informazioni</h3>
-<ul>
-    <li>Excuse me, where is...?</li>
-    <li>Can you help me?</li>
-    <li>What time is it?</li>
-</ul>
+<h3>❓ Chiedere Informazioni</h3>
+<div class="grammar-box">
+Excuse me, where is...? | Can you help me? | What time is it?
+</div>
 
-<h3>Esprimere Preferenze</h3>
-<ul>
-    <li>I like... / I don't like...</li>
-    <li>I love... / I hate...</li>
-    <li>My favorite... is...</li>
-</ul>
+<h3>❤️ Esprimere Preferenze</h3>
+<div class="grammar-box">
+I like... / I don't like... | I love... / I hate... | My favorite... is...
+</div>
 </div>
 
 
 
+</div>
 
 <footer style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #3498db; text-align: center; color: #7f8c8d; font-style: italic;">
     <p>A cura del Dipartimento di Inglese dell'IIS MENDEL di Villa Cortese (MI)</p>
