@@ -1,555 +1,795 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>Guida Rapida - Basi di Inglese</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guida Rapida - Basi di Inglese con Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Verdana', 'Tahoma', 'Century Gothic', 'Trebuchet MS', Arial, sans-serif; 
-            font-size: 16px;
-            line-height: 1.6; 
-            letter-spacing: 0.5px;
-            margin: 20px; 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
+        :root {
+            --primary-color: #5d5d81;
+            --secondary-color: #8c78a0;
+            --light-bg: #f5f5f5;
+            --dark-text: #2c3e50;
+            --success-color: #2ecc71;
+            --danger-color: #e74c3c;
+            --info-color: #3498db;
         }
-        
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light-bg);
+            margin: 0;
+            padding: 0;
+            color: var(--dark-text);
+            line-height: 1.7;
+        }
+
         .container {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            max-width: 1000px;
-            margin: 0 auto;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background: #fff;
+            padding: 30px 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         
-        h1 { 
-            color: #fff;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            font-size: 2.2em;
-            margin: -30px -30px 30px -30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            letter-spacing: 1px;
-            font-weight: bold;
-        }
-        
-        h2 { 
-            color: #2d3436;
-            background: linear-gradient(45deg, #a8edea, #fed6e3);
-            padding: 18px;
-            border-radius: 12px;
-            margin: 25px 0 15px 0;
-            font-size: 1.4em;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            letter-spacing: 0.8px;
-            font-weight: bold;
-        }
-        
-        h3 { 
-            color: #2d3436;
-            background: linear-gradient(45deg, #ffecd2, #fcb69f);
-            padding: 12px 18px;
+        .sidebar a {
+            color: var(--dark-text);
+            text-decoration: none;
+            padding: 10px 15px;
             border-radius: 8px;
-            margin: 20px 0 10px 0;
-            display: inline-block;
-            min-width: 200px;
-            letter-spacing: 0.5px;
-            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        table { 
-            border-collapse: collapse; 
-            width: 100%; 
-            margin: 15px 0;
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: var(--primary-color);
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 40px;
+            width: calc(100% - 250px);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: var(--dark-text);
+            margin-top: 30px;
+            padding-left: 10px;
+            border-left: 4px solid var(--info-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        
-        th, td { 
-            border: none;
-            padding: 15px 18px; 
-            text-align: left; 
-            font-size: 15px;
-            letter-spacing: 0.3px;
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
-        
-        th { 
-            background: linear-gradient(45deg, #2d3436, #636e72);
-            color: white;
-            font-weight: bold; 
-            font-size: 16px;
-            letter-spacing: 0.8px;
+
+        th {
+            background: var(--primary-color);
+            color: #fff;
+            font-weight: 600;
         }
-        
-        tr:nth-child(even) { background-color: #f8f9fa; }
-        tr:nth-child(odd) { background-color: #fff; }
-        tr:hover { background-color: #e3f2fd; }
-        
-        .highlight { 
-            background: linear-gradient(45deg, #ffeaa7, #fab1a0) !important;
-            font-weight: bold;
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
-        
-        .usage { 
-            font-style: italic; 
-            color: #6c5ce7;
+
+        tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        .note, .example-box {
             background: #e8f4f8;
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 5px 0;
-            border-left: 4px solid #6c5ce7;
-        }
-        
-        .examples { 
-            color: #00b894;
-            font-weight: bold;
-            background: #e8f8f5;
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 5px 0;
-            border-left: 4px solid #00b894;
-        }
-        
-        .section { 
-            margin-bottom: 40px;
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        
-        .emoji { font-size: 1.5em; }
-        
-        ul {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #ff7675;
-        }
-        
-        li {
-            margin: 8px 0;
-            padding: 5px 0;
-        }
-        
-        strong {
-            color: #2d3436;
-            background: #ffeaa7;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-        
-        .irregular-verbs {
-            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            border-left: 5px solid var(--info-color);
             padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .irregular-verbs, .fun-fact {
+            background: #fff3e0;
+            border-left: 5px solid #ff9800;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .quiz-section {
+            background: #e0f7fa;
+            border: 2px dashed var(--info-color);
+            padding: 20px;
+            margin: 30px 0;
             border-radius: 10px;
-            margin: 10px 0;
-            color: #2d3436;
-            font-weight: bold;
         }
         
-        .grammar-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .quiz-item {
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .quiz-option {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .quiz-option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .quiz-option.correct {
+            background-color: var(--success-color);
             color: white;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 15px 0;
-            text-align: center;
-            font-size: 1.1em;
+            border-color: var(--success-color);
         }
-        
-        .fun-fact {
-            background: linear-gradient(45deg, #ffecd2, #fcb69f);
-            border: 3px dashed #e17055;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 15px 0;
-            text-align: center;
-            font-weight: bold;
-            color: #2d3436;
+
+        .quiz-option.incorrect {
+            background-color: var(--danger-color);
+            color: white;
+            border-color: var(--danger-color);
+        }
+
+        .quiz-feedback {
+            margin-top: 10px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                box-shadow: none;
+                padding: 10px;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
+
 <div class="container">
+    <div class="sidebar">
+        <div style="font-size: 1.2em; font-weight: 700; text-align: center; margin-bottom: 20px; color: var(--primary-color);">Indice</div>
+        <a href="#" onclick="showSection('verbi', this)"><span>📚</span> Tempi Verbali</a>
+        <a href="#" onclick="showSection('passato', this)"><span>⏳</span> Past vs Present Perfect</a>
+        <a href="#" onclick="showSection('plurali', this)"><span>✍️</span> Plurali</a>
+        <a href="#" onclick="showSection('pronomi', this)"><span>🔤</span> Pronomi & Articoli</a>
+        <a href="#" onclick="showSection('question', this)"><span>❓</span> Question Words</a>
+        <a href="#" onclick="showSection('some-any', this)"><span>⚖️</span> Some/Any & Much/Many</a>
+        <a href="#" onclick="showSection('comparativi', this)"><span>📈</span> Comparativi</a>
+        <a href="#" onclick="showSection('preposizioni', this)"><span>📍</span> Preposizioni</a>
+        <a href="#" onclick="showSection('comunicative', this)"><span>💬</span> Funzioni Comunicative</a>
+    </div>
 
-<h1>📘 GUIDA RAPIDA - BASI DI INGLESE</h1>
-<p style="text-align: center; font-size: 1.2em; color: #6c5ce7; font-weight: bold;">Primo Anno Superiori - Schema di Riferimento</p>
+    <div class="main-content">
+        <header>
+            <h1>Guida alle Basi di Inglese</h1>
+            <p style="color: var(--secondary-color); font-weight: 600;">Schemi e Ripasso per il Primo Anno</p>
+        </header>
 
-<div class="section">
-<h2>🕒 TEMPI VERBALI PRINCIPALI</h2>
+        <!-- Sezione TEMPI VERBALI -->
+        <section id="verbi" class="content-section active">
+            <h2>Tempi Verbali Principali</h2>
+            
+            <h3>Present Simple</h3>
+            <p>Usiamo il **Present Simple** per parlare di abitudini, fatti generali e orari fissi.</p>
+            <div class="example-box">
+                **Esempio:** "He **works** every day." (Lui lavora ogni giorno.)
+            </div>
+            <table>
+                <thead>
+                    <tr><th></th><th>Affermativa</th><th>Negativa</th><th>Interrogativa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>I/You/We/They</td><td>work</td><td>do not work</td><td>Do you work?</td></tr>
+                    <tr><td>He/She/It</td><td>work<strong>s</strong></td><td>does not work</td><td>Does he work?</td></tr>
+                </tbody>
+            </table>
 
-<h3>PRESENT SIMPLE</h3>
-<table>
-    <tr>
-        <th></th>
-        <th>Affermativa</th>
-        <th>Negativa</th>
-        <th>Interrogativa</th>
-    </tr>
-    <tr>
-        <td><strong>I/You/We/They</strong></td>
-        <td>work</td>
-        <td>don't work</td>
-        <td>Do you work?</td>
-    </tr>
-    <tr>
-        <td><strong>He/She/It</strong></td>
-        <td>work<strong>s</strong></td>
-        <td>doesn't work</td>
-        <td>Does he work?</td>
-    </tr>
-</table>
-<p class="usage"><strong>🔹 Uso:</strong> abitudini, fatti, orari</p>
-<p class="examples"><strong>🔹 Espressioni:</strong> always, usually, often, sometimes, never, every day</p>
+            <h3>Present Continuous</h3>
+            <p>Il **Present Continuous** serve per azioni che stanno accadendo proprio ora o per programmi futuri già fissati.</p>
+            <div class="example-box">
+                **Esempio:** "She **is studying** now." (Lei sta studiando ora.)
+            </div>
+            <table>
+                <thead>
+                    <tr><th></th><th>Affermativa</th><th>Negativa</th><th>Interrogativa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>I</td><td>am working</td><td>am not working</td><td>Am I working?</td></tr>
+                    <tr><td>You/We/They</td><td>are working</td><td>are not working</td><td>Are you working?</td></tr>
+                    <tr><td>He/She/It</td><td>is working</td><td>is not working</td><td>Is he working?</td></tr>
+                </tbody>
+            </table>
 
-<h3>PRESENT CONTINUOUS</h3>
-<table>
-    <tr>
-        <th></th>
-        <th>Affermativa</th>
-        <th>Negativa</th>
-        <th>Interrogativa</th>
-    </tr>
-    <tr>
-        <td><strong>I</strong></td>
-        <td>am working</td>
-        <td>am not working</td>
-        <td>Am I working?</td>
-    </tr>
-    <tr>
-        <td><strong>You/We/They</strong></td>
-        <td>are working</td>
-        <td>aren't working</td>
-        <td>Are you working?</td>
-    </tr>
-    <tr>
-        <td><strong>He/She/It</strong></td>
-        <td>is working</td>
-        <td>isn't working</td>
-        <td>Is he working?</td>
-    </tr>
-</table>
-<p class="usage"><strong>🔹 Uso:</strong> azioni in corso, programmi futuri già fissati</p>
-<p class="examples"><strong>🔹 Espressioni:</strong> now, at the moment, today, tonight</p>
+            <h3>Past Simple</h3>
+            <p>Il **Past Simple** si usa per azioni passate che sono finite. Per i verbi regolari si aggiunge **-ed**. Per i verbi irregolari, si usa la forma della seconda colonna.</p>
+            <div class="example-box">
+                **Esempio:** "She **lived** in London last year." (Lei ha vissuto a Londra l'anno scorso.)
+            </div>
+            <table>
+                <thead>
+                    <tr><th></th><th>Affermativa</th><th>Negativa</th><th>Interrogativa</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Tutti i soggetti</td><td>worked/went</td><td>did not work</td><td>Did you work?</td></tr>
+                </tbody>
+            </table>
 
-<h3>PAST SIMPLE</h3>
-<table>
-    <tr>
-        <th></th>
-        <th>Affermativa</th>
-        <th>Negativa</th>
-        <th>Interrogativa</th>
-    </tr>
-    <tr>
-        <td><strong>Tutti</strong></td>
-        <td>worked</td>
-        <td>didn't work</td>
-        <td>Did you work?</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>was/were</td>
-        <td>wasn't/weren't</td>
-        <td>Were you...?</td>
-    </tr>
-</table>
-<p class="usage"><strong>🔹 Uso:</strong> azioni passate finite</p>
-<p class="examples"><strong>🔹 Espressioni:</strong> yesterday, last week, ago, in 2020</p>
+            <h3>Future Forms</h3>
+            <p>Per parlare del futuro, ci sono diverse forme a seconda del significato:</p>
+            <table>
+                <thead>
+                    <tr><th>WILL</th><th>GOING TO</th><th>PRESENT CONTINUOUS</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Uso:</strong> Decisioni spontanee, promesse, previsioni senza evidenza.</td>
+                        <td><strong>Uso:</strong> Intenzioni, piani, previsioni con evidenza.</td>
+                        <td><strong>Uso:</strong> Programmi futuri già fissati e organizzati.</td>
+                    </tr>
+                    <tr>
+                        <td>"I think it **will** rain."</td>
+                        <td>"Look at the clouds! It's **going to** rain."</td>
+                        <td>"I'm **meeting** Tom tonight."</td>
+                    </tr>
+                </tbody>
+            </table>
 
-<div class="irregular-verbs">
-🔸 <strong>Verbi irregolari comuni:</strong><br>
-go → <strong>went</strong> | come → <strong>came</strong> | see → <strong>saw</strong> | have → <strong>had</strong><br>
-get → <strong>got</strong> | make → <strong>made</strong> | take → <strong>took</strong> | do → <strong>did</strong>
+            <div class="quiz-section">
+                <h3>Test rapido: Tempi Verbali</h3>
+                <div class="quiz-item">
+                    <div class="quiz-question">1. My brother ______ football every Saturday.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'plays')">plays</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'is playing')">is playing</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">2. Look! The sun ________ now.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'is shining')">is shining</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'shines')">shines</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">3. I _______ to the cinema last night.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'went')">went</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'have gone')">have gone</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">4. I think people _______ on Mars in the future.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'are going to live')">are going to live</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'will live')">will live</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">5. "The train leaves at 8:00." This is an example of...</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Present Simple')">Present Simple</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Present Continuous')">Present Continuous</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione PAST SIMPLE vs PRESENT PERFECT -->
+        <section id="passato" class="content-section">
+            <h2>Past Simple vs Present Perfect</h2>
+            <div class="example-box">
+                Questo è il punto cruciale! Molti studenti fanno confusione, ma la regola è semplice:
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Past Simple</th><th>Present Perfect</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Azione passata e <strong>conclusa</strong>.</td>
+                        <td>Azione passata che ha un <strong>effetto nel presente</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td>Espressioni temporali precise: <strong>yesterday, last week, in 2020</strong>.</td>
+                        <td>Esperienze o azioni senza un tempo preciso: <strong>ever, never, already, just, yet</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Esempio:</strong> "I **ate** pizza last night." (L'ho mangiata e ho finito).</td>
+                        <td><strong>Esempio:</strong> "I **have eaten** too much." (Ho mangiato e ora mi sento male).</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="irregular-verbs">
+                **Verbi irregolari comuni:** go → **went** | come → **came** | see → **saw** | have → **had**
+            </div>
+
+            <div class="quiz-section">
+                <h3>Test rapido: Past Simple vs Present Perfect</h3>
+                <div class="quiz-item">
+                    <div class="quiz-question">1. I ______ that movie last weekend.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'saw')">saw</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'have seen')">have seen</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">2. I can't find my keys. I think I ______ them.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'lost')">lost</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'have lost')">have lost</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">3. ______ you ______ to London?</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Were you ever')">Were you ever</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Have you ever been')">Have you ever been</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">4. We ______ to Italy in 2022.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'went')">went</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'have gone')">have gone</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">5. "I have just finished my homework." Questa frase usa il tempo verbale per descrivere un'azione...</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'appena conclusa con un risultato nel presente.')">appena conclusa con un risultato nel presente.</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'conclusa in un momento preciso del passato.')">conclusa in un momento preciso del passato.</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione PLURALI -->
+        <section id="plurali" class="content-section">
+            <h2>Plurali dei Sostantivi</h2>
+            <p>Generalmente si aggiunge una **-s** al singolare. Ma ci sono delle regole e delle eccezioni da ricordare!</p>
+            <table>
+                <thead>
+                    <tr><th>Regola</th><th>Esempi</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>**+s**</td><td>book → books, cat → cats</td></tr>
+                    <tr><td>**+es** (per -s, -x, -ch, -sh)</td><td>box → boxes, watch → watches</td></tr>
+                    <tr><td>**y → ies**</td><td>city → cities, baby → babies</td></tr>
+                    <tr><td>**f/fe → ves**</td><td>knife → knives, life → lives</td></tr>
+                </tbody>
+            </table>
+            <h3>Plurali Irregolari</h3>
+            <div class="fun-fact">
+                **Attenzione!** Questi plurali non seguono le regole, vanno imparati a memoria!
+                <br>man → **men** | woman → **women** | child → **children** | person → **people**
+            </div>
+
+            <div class="quiz-section">
+                <h3>Test rapido: Plurali</h3>
+                <div class="quiz-item">
+                    <div class="quiz-question">1. Qual è il plurale di "bus"?</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'buses')">buses</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'buss')">buss</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">2. Qual è il plurale di "city"?</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'citys')">citys</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'cities')">cities</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">3. Il plurale di "mouse" è...</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'mouses')">mouses</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'mice')">mice</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">4. Il plurale di "child" è...</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'childs')">childs</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'children')">children</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">5. Qual è il plurale di "sheep"?</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'sheeps')">sheeps</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'sheep')">sheep</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione PRONOMI -->
+        <section id="pronomi" class="content-section">
+            <h2>Articoli, Pronomi e Aggettivi</h2>
+            <div class="example-box">
+                **Articoli:** A/AN per cose indefinite (a book), THE per cose specifiche (the book).
+            </div>
+            <table>
+                <thead>
+                    <tr><th>Pronome Soggetto</th><th>Pronome Complemento</th><th>Aggettivo Possessivo</th><th>Pronome Possessivo</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>I</td><td>me</td><td>my</td><td>mine</td></tr>
+                    <tr><td>you</td><td>you</td><td>your</td><td>yours</td></tr>
+                    <tr><td>he</td><td>him</td><td>his</td><td>his</td></tr>
+                    <tr><td>she</td><td>her</td><td>her</td><td>hers</td></tr>
+                    <tr><td>it</td><td>it</td><td>its</td><td>-</td></tr>
+                    <tr><td>we</td><td>us</td><td>our</td><td>ours</td></tr>
+                    <tr><td>they</td><td>them</td><td>their</td><td>theirs</td></tr>
+                </tbody>
+            </table>
+
+            <div class="quiz-section">
+                <h3>Test rapido: Pronomi e Articoli</h3>
+                <div class="quiz-item">
+                    <div class="quiz-question">1. This is my dog. _______ name is Rex.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Its')">Its</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'It\'s')">It's</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">2. The book belongs to me. It's _______.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'my')">my</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'mine')">mine</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">3. Can you give me _______ apple?</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'a')">a</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'an')">an</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">4. My brother is taller than _______.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'I')">I</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'me')">me</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">5. That car is _________. (belongs to them)</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'their')">their</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'theirs')">theirs</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione QUESTION WORDS -->
+        <section id="question" class="content-section">
+            <h2>Question Words</h2>
+            <p>Usiamo queste parole per iniziare le domande e chiedere informazioni specifiche.</p>
+            <table>
+                <thead>
+                    <tr><th>Parola</th><th>Significato</th><th>Esempio</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>**What**</td><td>Cosa</td><td>What is your name?</td></tr>
+                    <tr><td>**Where**</td><td>Dove</td><td>Where do you live?</td></tr>
+                    <tr><td>**When**</td><td>Quando</td><td>When did you arrive?</td></tr>
+                    <tr><td>**Who**</td><td>Chi</td><td>Who is that person?</td></tr>
+                    <tr><td>**Why**</td><td>Perché</td><td>Why are you sad?</td></tr>
+                    <tr><td>**How**</td><td>Come</td><td>How are you?</td></tr>
+                </tbody>
+            </table>
+
+            <div class="quiz-section">
+                <h3>Test rapido: Question Words</h3>
+                <div class="quiz-item">
+                    <div class="quiz-question">1. _______ is your birthday? - It's on Friday.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'When')">When</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Where')">Where</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">2. _______ do you live? - I live in Milan.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'What')">What</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Where')">Where</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">3. _______ is your favourite colour? - It's blue.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Who')">Who</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'What')">What</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">4. _______ are you crying? - Because I'm sad.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Why')">Why</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'How')">How</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">5. _______ is at the door? - It's my friend.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'What')">What</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'Who')">Who</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione SOME/ANY -->
+        <section id="some-any" class="content-section">
+            <h2>Some/Any & Much/Many</h2>
+            <h3>Some vs Any</h3>
+            <div class="example-box">
+                **SOME:** Si usa nelle frasi affermative. ("I have **some** friends.")
+                <br>**ANY:** Si usa nelle frasi negative e interrogative. ("I don't have **any** money." / "Do you have **any** sisters?")
+            </div>
+            <h3>Much vs Many</h3>
+            <div class="example-box">
+                **MUCH:** Per sostantivi non numerabili (che non si possono contare: tempo, denaro). ("How **much** time?")
+                <br>**MANY:** Per sostantivi numerabili (che si possono contare: libri, studenti). ("How **many** books?")
+            </div>
+
+            <div class="quiz-section">
+                <h3>Test rapido: Some/Any & Much/Many</h3>
+                <div class="quiz-item">
+                    <div class="quiz-question">1. Do you have ______ milk?</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'any')">any</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'some')">some</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">2. I have ______ books on the shelf.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'any')">any</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'some')">some</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">3. How ______ money do you have?</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'many')">many</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'much')">much</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">4. There aren't ______ students in the class.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'some')">some</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'any')">any</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">5. How ______ apples did you eat?</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'much')">much</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'many')">many</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione COMPARATIVI -->
+        <section id="comparativi" class="content-section">
+            <h2>Comparativi e Superlativi</h2>
+            <h3>Aggettivi Corti (+er/est)</h3>
+            <div class="example-box">
+                **tall** → tall**er** (più alto) → the tall**est** (il più alto)
+            </div>
+            <h3>Aggettivi Lunghi (more/most)</h3>
+            <div class="example-box">
+                **beautiful** → **more** beautiful (più bello) → **the most** beautiful (il più bello)
+            </div>
+            <h3>Irregolari</h3>
+            <div class="fun-fact">
+                good → **better** → **the best**
+                <br>bad → **worse** → **the worst**
+            </div>
+
+            <div class="quiz-section">
+                <h3>Test rapido: Comparativi</h3>
+                <div class="quiz-item">
+                    <div class="quiz-question">1. This book is _______ than that one. (interesting)</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'more interesting')">more interesting</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'interestinger')">interestinger</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">2. He is the _______ student in the class. (good)</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'best')">best</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'goodest')">goodest</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">3. My house is _______ than yours. (big)</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'big')">big</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'bigger')">bigger</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">4. What is the _______ mountain in the world? (high)</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'highest')">highest</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'high')">high</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">5. This is the _______ film I have ever seen. (bad)</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'worst')">worst</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'baddest')">baddest</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione PREPOSIZIONI -->
+        <section id="preposizioni" class="content-section">
+            <h2>Preposizioni Principali</h2>
+            <h3>Preposizioni di Tempo</h3>
+            <table>
+                <tr><td>**IN**</td><td>in the morning, in January, in 2023</td></tr>
+                <tr><td>**ON**</td><td>on Monday, on 5th May</td></tr>
+                <tr><td>**AT**</td><td>at 3 o'clock, at night, at the weekend</td></tr>
+            </table>
+            <h3>Preposizioni di Luogo</h3>
+            <table>
+                <tr><td>**IN**</td><td>in the room, in London</td></tr>
+                <tr><td>**ON**</td><td>on the table, on the bus</td></tr>
+                <tr><td>**AT**</td><td>at home, at school, at the station</td></tr>
+            </table>
+
+            <div class="quiz-section">
+                <h3>Test rapido: Preposizioni</h3>
+                <div class="quiz-item">
+                    <div class="quiz-question">1. I was born _______ 2005.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'in')">in</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'on')">on</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">2. The meeting is _______ Friday.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'at')">at</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'on')">on</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">3. We have lunch _______ 12:30 PM.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'at')">at</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'in')">in</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">4. The book is _______ the table.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'in')">in</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'on')">on</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-item">
+                    <div class="quiz-question">5. She is _______ school.</div>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'at')">at</button>
+                    <button class="quiz-option" onclick="checkQuiz(this, 'in')">in</button>
+                    <div class="quiz-feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione FUNZIONI COMUNICATIVE -->
+        <section id="comunicative" class="content-section">
+            <h2>Funzioni Comunicative Essenziali</h2>
+            <div class="example-box">
+                **Presentarsi:** "Hello, I'm..." / "My name is..." | "Nice to meet you."
+                <br>**Chiedere Informazioni:** "Excuse me, where is...?" | "Can you help me?"
+                <br>**Esprimere Preferenze:** "I like..." / "I don't like..." | "I love..." / "I hate..."
+            </div>
+        </section>
+
+    </div>
 </div>
 
-<h3>PRESENT PERFECT</h3>
-<table>
-    <tr>
-        <th></th>
-        <th>Affermativa</th>
-        <th>Negativa</th>
-        <th>Interrogativa</th>
-    </tr>
-    <tr>
-        <td><strong>I/You/We/They</strong></td>
-        <td>have worked</td>
-        <td>haven't worked</td>
-        <td>Have you worked?</td>
-    </tr>
-    <tr>
-        <td><strong>He/She/It</strong></td>
-        <td>has worked</td>
-        <td>hasn't worked</td>
-        <td>Has he worked?</td>
-    </tr>
-</table>
-<p class="usage"><strong>🔹 Uso:</strong> esperienze di vita, azioni passate con risultato presente</p>
-<p class="examples"><strong>🔹 Espressioni:</strong> ever, never, already, just, yet, since, for</p>
+<script>
+    function showSection(sectionId, element) {
+        const sections = document.querySelectorAll('.content-section');
+        sections.forEach(sec => sec.classList.remove('active'));
 
-<h3>FUTURE FORMS</h3>
-<table>
-    <tr>
-        <th>WILL</th>
-        <th>GOING TO</th>
-        <th>PRESENT CONTINUOUS</th>
-    </tr>
-    <tr>
-        <td>I will go</td>
-        <td>I'm going to go</td>
-        <td>I'm going (tonight)</td>
-    </tr>
-    <tr class="highlight">
-        <td><strong>Uso:</strong> promesse, previsioni, decisioni spontanee</td>
-        <td><strong>Uso:</strong> intenzioni, previsioni con evidenza</td>
-        <td><strong>Uso:</strong> programmi già fissati</td>
-    </tr>
-    <tr>
-        <td>I think it will rain</td>
-        <td>Look! It's going to rain</td>
-        <td>I'm meeting Tom at 8</td>
-    </tr>
-</table>
-</div>
+        const selectedSection = document.getElementById(sectionId);
+        selectedSection.classList.add('active');
 
-<div class="section">
-<h2>📝 PLURALI</h2>
+        const links = document.querySelectorAll('.sidebar a');
+        links.forEach(link => link.classList.remove('active'));
+        element.classList.add('active');
+    }
 
-<h3>Plurali Regolari</h3>
-<table>
-    <tr>
-        <th>Regola</th>
-        <th>Esempi</th>
-    </tr>
-    <tr>
-        <td><strong>+s</strong></td>
-        <td>book → books, cat → cats</td>
-    </tr>
-    <tr>
-        <td><strong>+es</strong></td>
-        <td>box → boxes, watch → watches</td>
-    </tr>
-    <tr>
-        <td><strong>y → ies</strong></td>
-        <td>city → cities, baby → babies</td>
-    </tr>
-    <tr>
-        <td><strong>f/fe → ves</strong></td>
-        <td>knife → knives, life → lives</td>
-    </tr>
-</table>
+    function checkQuiz(button, correctAnswer) {
+        const quizItem = button.closest('.quiz-item');
+        const options = quizItem.querySelectorAll('.quiz-option');
+        const feedback = quizItem.querySelector('.quiz-feedback');
+        
+        // Disable all options for this question
+        options.forEach(opt => {
+            opt.disabled = true;
+            opt.style.cursor = 'default';
+        });
+        
+        const isCorrect = button.textContent.trim() === correctAnswer;
+        
+        if (isCorrect) {
+            button.classList.add('correct');
+            feedback.textContent = 'Corretto!';
+            feedback.style.color = 'var(--success-color)';
+        } else {
+            button.classList.add('incorrect');
+            feedback.textContent = 'Sbagliato. La risposta corretta era: ' + correctAnswer;
+            feedback.style.color = 'var(--danger-color)';
+            
+            // Highlight the correct answer
+            options.forEach(opt => {
+                if (opt.textContent.trim() === correctAnswer) {
+                    opt.classList.add('correct');
+                }
+            });
+        }
+        feedback.style.display = 'block';
+    }
 
-<h3>Plurali Irregolari</h3>
-<div class="fun-fact">
-🦆 <strong>man → men</strong> | <strong>woman → women</strong> | <strong>child → children</strong><br>
-👥 <strong>person → people</strong> | <strong>foot → feet</strong> | <strong>tooth → teeth</strong><br>
-🐭 <strong>mouse → mice</strong> | <strong>sheep → sheep</strong> | <strong>fish → fish</strong>
-</div>
-</div>
-
-<div class="section">
-<h2>🔤 ARTICOLI, PRONOMI, AGGETTIVI</h2>
-
-<h3>📰 Articoli</h3>
-<div class="grammar-box">
-🅰️ <strong>A/AN:</strong> a book, an apple (singolare, indeterminativo)<br>
-🎯 <strong>THE:</strong> the book (determinativo)
-</div>
-
-<h3>Pronomi Personali e Possessivi</h3>
-<table>
-    <tr>
-        <th>Soggetto</th>
-        <th>Complemento</th>
-        <th>Aggettivi Possessivi</th>
-        <th>Pronomi Possessivi</th>
-    </tr>
-    <tr>
-        <td>I</td>
-        <td>me</td>
-        <td>my</td>
-        <td>mine</td>
-    </tr>
-    <tr>
-        <td>you</td>
-        <td>you</td>
-        <td>your</td>
-        <td>yours</td>
-    </tr>
-    <tr>
-        <td>he</td>
-        <td>him</td>
-        <td>his</td>
-        <td>his</td>
-    </tr>
-    <tr>
-        <td>she</td>
-        <td>her</td>
-        <td>her</td>
-        <td>hers</td>
-    </tr>
-    <tr>
-        <td>it</td>
-        <td>it</td>
-        <td>its</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <td>we</td>
-        <td>us</td>
-        <td>our</td>
-        <td>ours</td>
-    </tr>
-    <tr>
-        <td>they</td>
-        <td>them</td>
-        <td>their</td>
-        <td>theirs</td>
-    </tr>
-</table>
-</div>
-
-<div class="section">
-<h2>❓ QUESTION WORDS</h2>
-<table>
-    <tr>
-        <th>Parola</th>
-        <th>Significato</th>
-        <th>Esempio</th>
-    </tr>
-    <tr>
-        <td><strong>What</strong></td>
-        <td>Cosa/Che cosa</td>
-        <td>What's your name?</td>
-    </tr>
-    <tr>
-        <td><strong>Where</strong></td>
-        <td>Dove</td>
-        <td>Where do you live?</td>
-    </tr>
-    <tr>
-        <td><strong>When</strong></td>
-        <td>Quando</td>
-        <td>When did you arrive?</td>
-    </tr>
-    <tr>
-        <td><strong>Who</strong></td>
-        <td>Chi</td>
-        <td>Who is that person?</td>
-    </tr>
-    <tr>
-        <td><strong>Why</strong></td>
-        <td>Perché</td>
-        <td>Why are you sad?</td>
-    </tr>
-    <tr>
-        <td><strong>How</strong></td>
-        <td>Come</td>
-        <td>How are you?</td>
-    </tr>
-    <tr>
-        <td><strong>How much</strong></td>
-        <td>Quanto (non numerabile)</td>
-        <td>How much money?</td>
-    </tr>
-    <tr>
-        <td><strong>How many</strong></td>
-        <td>Quanti (numerabile)</td>
-        <td>How many books?</td>
-    </tr>
-</table>
-</div>
-
-<div class="section">
-<h2>🔢 SOME/ANY/MUCH/MANY</h2>
-
-<h3>✅ SOME vs ANY</h3>
-<div class="grammar-box">
-➕ <strong>SOME:</strong> frasi affermative → I have some friends<br>
-➖❓ <strong>ANY:</strong> frasi negative e interrogative → I don't have any money / Do you have any sisters?
-</div>
-
-<h3>🔢 MUCH vs MANY</h3>
-<div class="grammar-box">
-💧 <strong>MUCH:</strong> sostantivi non numerabili → How much time?<br>
-📚 <strong>MANY:</strong> sostantivi numerabili → How many students?
-</div>
-</div>
-
-<div class="section">
-<h2>⚖️ COMPARATIVI</h2>
-
-<h3>📏 Aggettivi Corti (+er/est)</h3>
-<div class="fun-fact">
-📐 tall → tall<strong>er</strong> → the tall<strong>est</strong><br>
-📦 big → bigg<strong>er</strong> → the bigg<strong>est</strong><br>
-😊 happy → happi<strong>er</strong> → the happi<strong>est</strong>
-</div>
-
-<h3>📝 Aggettivi Lunghi (more/most)</h3>
-<div class="fun-fact">
-🌸 beautiful → <strong>more</strong> beautiful → <strong>the most</strong> beautiful<br>
-💰 expensive → <strong>more</strong> expensive → <strong>the most</strong> expensive
-</div>
-
-<h3>🎭 Irregolari</h3>
-<div class="irregular-verbs">
-👍 good → <strong>better</strong> → <strong>the best</strong><br>
-👎 bad → <strong>worse</strong> → <strong>the worst</strong>
-</div>
-</div>
-
-<div class="section">
-<h2>📍 PREPOSIZIONI PRINCIPALI</h2>
-
-<h3>⏰ Tempo</h3>
-<div class="grammar-box">
-🌅 <strong>IN:</strong> in the morning, in January, in 2023<br>
-📅 <strong>ON:</strong> on Monday, on 5th May<br>
-🕐 <strong>AT:</strong> at 3 o'clock, at night, at the weekend
-</div>
-
-<h3>🗺️ Luogo</h3>
-<div class="grammar-box">
-🏠 <strong>IN:</strong> in the room, in London<br>
-📋 <strong>ON:</strong> on the table, on the bus<br>
-📍 <strong>AT:</strong> at home, at school, at the station
-</div>
-</div>
-
-<div class="section">
-<h2>💬 FUNZIONI COMUNICATIVE ESSENZIALI</h2>
-
-<h3>👋 Presentarsi</h3>
-<div class="grammar-box">
-Hello, I'm... / My name is... | Nice to meet you | How are you? → Fine, thanks
-</div>
-
-<h3>❓ Chiedere Informazioni</h3>
-<div class="grammar-box">
-Excuse me, where is...? | Can you help me? | What time is it?
-</div>
-
-<h3>❤️ Esprimere Preferenze</h3>
-<div class="grammar-box">
-I like... / I don't like... | I love... / I hate... | My favorite... is...
-</div>
-</div>
-
-
-
-</div>
-
-<footer style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #3498db; text-align: center; color: #7f8c8d; font-style: italic;">
-    <p>A cura del Dipartimento di Inglese dell'IIS MENDEL di Villa Cortese (MI)</p>
-</footer>
+    document.addEventListener('DOMContentLoaded', () => {
+        showSection('verbi', document.querySelector('.sidebar a'));
+    });
+</script>
 
 </body>
 </html>
